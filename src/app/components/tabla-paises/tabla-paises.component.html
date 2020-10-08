@@ -1,0 +1,29 @@
+<div class="container">
+    <!--h1 class="display-3">Listado de actores</h1-->
+
+    <!--ul class="alumnos">
+    <li *ngFor="let alumno of listadoAlumnos">
+        <span class="badge">{{alumno.legajo}}</span> {{alumno.apellido}}  -{{alumno.nombre}}  <button type="button" class="btn btn-info btn-circle"   (click)="mostrarDetalles(alumno)"><i class="fa fa-check"></i>
+        </button>
+    </li>
+    </ul-->
+    <div class="limit-height">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Bandera</th>
+                <th>Nombre</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of listado" (click)="Seleccionar(item)">
+                <td><img src="{{item.flag}}" class="bd-placeholder-img card-img-top" width="100%" height="50px" ></td>
+                <td>{{item.name}}</td>
+                <!--td><button type="button" class="btn btn-info  btn-circle" (click)="mostrarDetalles(alumno)"><i class="fa fa-check"></i>
+                </button></td-->
+            </tr>
+    
+        </tbody>
+    </table>
+</div>
+</div>
