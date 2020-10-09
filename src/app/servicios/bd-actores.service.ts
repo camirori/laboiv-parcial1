@@ -16,7 +16,9 @@ export class BdActoresService {
       this.db.collection(this.collectionName).get().subscribe((querySnapshot)=> {
         this.datos = [];
         querySnapshot.forEach((doc)=> {
-            this.datos.push(doc.data() as Actor);
+          let item=doc.data() as Actor;
+          item.id=doc.id;
+          this.datos.push(item);
         });
         console.log("Service");
         console.log( this.datos);
@@ -38,5 +40,11 @@ export class BdActoresService {
     .catch((error)=> {    console.error("Error adding document: ", error);	});
   
   }
+
+  borrarDato(id){
+    this.db.collection(this.collectionName).doc(id).delete()
+    .then(()=>console.log("Borrado")).catch(err=>console.log(err));
+  }
+
 
 }

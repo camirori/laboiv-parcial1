@@ -15,6 +15,11 @@ import { BdActoresService } from './servicios/bd-actores.service';
 import { PaisesService } from './servicios/paises.service';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
+import { ActorListadoComponent } from './components/actor-listado/actor-listado.component';
+import { TablaActorComponent } from './components/tabla-actor/tabla-actor.component';
+import { DetalleActorComponent } from './components/detalle-actor/detalle-actor.component';
+import { BorrarActorComponent } from './components/borrar-actor/borrar-actor.component';
+import { EditarActorComponent } from './components/editar-actor/editar-actor.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +28,12 @@ import { HttpClientModule } from '@angular/common/http';
     TablaPaisesComponent,
     MenuComponent,
     ErrorComponent,
-    BienvenidoComponent
+    BienvenidoComponent,
+    ActorListadoComponent,
+    TablaActorComponent,
+    DetalleActorComponent,
+    BorrarActorComponent,
+    EditarActorComponent
   ],
   imports: [
     BrowserModule,

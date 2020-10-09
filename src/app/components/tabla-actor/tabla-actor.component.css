@@ -1,9 +1,7 @@
-.container {
-    max-width: 960px;
-
+.body {
+    padding-top: 3.5rem;
+    height: 100%;
   }
-  
-  .lh-condensed { line-height: 1.25; }
 
 
   .bd-placeholder-img {
@@ -20,7 +18,3 @@
       font-size: 3.5rem;
     }
   }
-
-  .invalid-feedback {
-    display: block;
-}

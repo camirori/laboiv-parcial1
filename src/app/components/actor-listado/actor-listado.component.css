@@ -1,9 +1,7 @@
-.container {
-    max-width: 960px;
-
+.body {
+    padding-top: 3.5rem;
+    height: 100%;
   }
-  
-  .lh-condensed { line-height: 1.25; }
 
 
   .bd-placeholder-img {
@@ -21,6 +19,6 @@
     }
   }
 
-  .invalid-feedback {
-    display: block;
-}
+  .jumbotron{
+    padding-top: 10px;
+  }

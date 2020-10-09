@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AltaActorComponent } from '../components/alta-actor/alta-actor.component';
-//import { ActorListadoComponent } from '../components/actor-listado/actor-listado.component';
+import { ActorListadoComponent } from '../components/actor-listado/actor-listado.component';
 import { BienvenidoComponent } from '../components/bienvenido/bienvenido.component';
 //import { BusquedaComponent } from '../components/busqueda/busqueda.component';
 import { ErrorComponent } from '../components/error/error.component';
@@ -15,7 +15,7 @@ const routes: Routes = [
   //{path: 'peliculas/alta', component: PeliculaAltaComponent},
   //{path: 'peliculas/listado', component: PeliculaListadoComponent},
   {path: 'actor/alta', component: AltaActorComponent},
-  //{path: 'actor/listado', component: ActorListadoComponent},
+  {path: 'actor/listado', component: ActorListadoComponent},
   {path: '**', component: ErrorComponent},		//wild card
 ];
 

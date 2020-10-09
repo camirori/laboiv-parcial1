@@ -1,0 +1,36 @@
+<div class="container">
+    <!--h1 class="display-3">Listado de actores</h1-->
+
+    <!--ul class="alumnos">
+    <li *ngFor="let alumno of listadoAlumnos">
+        <span class="badge">{{alumno.legajo}}</span> {{alumno.apellido}}  -{{alumno.nombre}}  <button type="button" class="btn btn-info btn-circle"   (click)="mostrarDetalles(alumno)"><i class="fa fa-check"></i>
+        </button>
+    </li>
+    </ul-->
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Sexo</th>
+                <th>Fecha nacimiento</th>
+                <th>Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of listado" >
+                <td (click)="Seleccionar(item,'detalle')">{{item.Nombre}} {{item.apellido}}</td>
+                <td (click)="Seleccionar(item,'detalle')">{{item.sexo}}</td>
+                <td (click)="Seleccionar(item,'detalle')">{{item.FechaNacimiento}}</td>
+                <td>
+                    <button class="btn btn-primary " (click)="Seleccionar(item,'detalle')">Ver</button>
+                    <button class="btn btn-success " (click)="Seleccionar(item,'editar')">Editar</button>
+                    <button class="btn btn-warning " (click)="Seleccionar(item,'borrar')">Borrar</button>
+                </td>
+                <!--td><button type="button" class="btn btn-info  btn-circle" (click)="mostrarDetalles(alumno)"><i class="fa fa-check"></i>
+                </button></td-->
+            </tr>
+    
+        </tbody>
+    </table>
+</div>

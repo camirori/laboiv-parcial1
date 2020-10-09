@@ -59,7 +59,16 @@ export class AltaActorComponent implements OnInit {
       let Foto=null;
 
       this.servicioActores.guardarDato(new Actor(Nombre,apellido,sexo,FechaNacimiento,Nacionalidad,Foto));
+      this.altaForm.get('nombre').reset();
+      this.altaForm.get('apellido').reset();
+      this.altaForm.get('sexo').reset();
+      this.altaForm.get('fecha').reset();
+      this.altaForm.get('pais').reset();
     }
+    else{
+      this.altaForm.get('pais').markAllAsTouched();
+    }
+
   }
 
   paisSeleccionado(nombre: string){

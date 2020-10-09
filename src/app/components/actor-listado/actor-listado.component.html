@@ -1,0 +1,36 @@
+<div class="body">
+    <app-menu></app-menu>
+        
+        <main role="main">
+        
+          <!-- Main jumbotron for a primary marketing message or call to action -->
+          <div class="jumbotron">
+            <app-tabla-actor (itemSeleccionado)="mostrarDetalle($event)" [listado]="listado" ></app-tabla-actor>
+          </div>
+        
+          <div class="container" [ngSwitch]="accion">
+            <!-- Example row of columns -->
+            <!--div class="row">
+              <div class="col-md-4">
+                <app-borrar></app-borrar>
+              </div>
+              <div class="col-md-4"-->
+                <app-detalle-actor *ngSwitchCase="'detalle'" [itemParaMostrar]="item"  (limpiarItemEvent)="mostrarDetalle($event)"></app-detalle-actor>
+                <app-borrar-actor *ngSwitchCase="'borrar'" [itemParaMostrar]="item"  (deleteItemEvent)="deleteItem($event)"></app-borrar-actor>
+                <app-editar-actor *ngSwitchCase="'editar'" [itemParaMostrar]="item"  (limpiarItemEvent)="mostrarDetalle($event)" ></app-editar-actor>
+              <!--/div>
+              <div class="col-md-4">
+                <app-modificacion></app-modificacion>
+              </div>
+            </div-->
+        
+            <hr>
+        
+          </div> <!-- /container -->
+        
+        </main>
+        
+        <footer class="container">
+          <p>&copy; Company 2017-2020</p>
+        </footer>
+      </div>
