@@ -46,5 +46,17 @@ export class BdActoresService {
     .then(()=>console.log("Borrado")).catch(err=>console.log(err));
   }
 
+  editarDato(dato: Actor){
+    this.db.collection(this.collectionName).doc(dato.id).update({
+        Nombre: dato.Nombre,
+        apellido: dato.apellido,
+        sexo: dato.sexo,
+        FechaNacimiento: dato.FechaNacimiento,
+        Foto: dato.Foto,
+        Nacionalidad: dato.Nacionalidad     
+    })
+    .then(()=>console.log("Editado")).catch(err=>console.log(err));
+  }
+
 
 }
