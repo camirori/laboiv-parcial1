@@ -9,6 +9,7 @@ import { Actor } from 'src/app/clases/actor';
 export class TablaActorComponent implements OnInit {
   @Input() listado: Actor[] ;
   @Output() itemSeleccionado: EventEmitter<any> = new EventEmitter<any>();
+  
 
   constructor() { }
 

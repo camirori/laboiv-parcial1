@@ -1,0 +1,242 @@
+<app-menu></app-menu>
+<div class="container">
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" src="../../../assets/brand/pelicula.png" alt="" width="72" height="72">
+      <h2>Nueva Pelicula</h2>
+      <p class="lead">Carga los datos de la nueva pelicula y elige el actor que participó en la misma </p>
+    </div>
+  
+    <div class="row">
+      <div class="col-md-4 order-md-2 mb-4">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-muted">Actores</span>
+          <!--span class="badge badge-secondary badge-pill">3</span-->
+        </h4>
+        <app-tabla-actor [listado]="listadoActores" (itemSeleccionado)="paisSeleccionado($event)"></app-tabla-actor>
+        <!--ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0">Product name</h6>
+              <small class="text-muted">Brief description</small>
+            </div>
+            <span class="text-muted">$12</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0">Second product</h6>
+              <small class="text-muted">Brief description</small>
+            </div>
+            <span class="text-muted">$8</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0">Third item</h6>
+              <small class="text-muted">Brief description</small>
+            </div>
+            <span class="text-muted">$5</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="text-success">
+              <h6 class="my-0">Promo code</h6>
+              <small>EXAMPLECODE</small>
+            </div>
+            <span class="text-success">-$5</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Total (USD)</span>
+            <strong>$20</strong>
+          </li>
+        </ul-->
+        
+  
+        <!--form class="card p-2">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Promo code">
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-secondary">Redeem</button>
+            </div>
+          </div>
+        </form-->
+      </div>
+
+      <div class="col-md-8 order-md-1">
+        <h4 class="mb-3">Datos pelicula</h4>
+        <form  [formGroup]="altaForm">
+          
+          <div class="mb-3">
+            <label for="nombre">Nombre</label>
+            <div class="input-group">
+              
+              <input type="text" class="form-control" id="nombre" formControlName="nombre" required>
+              <div *ngIf="this.altaForm.get('nombre').invalid && (this.altaForm.get('nombre').dirty || this.altaForm.get('nombre').touched)" class="invalid-feedback">
+                <div *ngIf="this.altaForm.get('nombre').hasError('required')" >
+                  Valid name is required.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            
+            <div class="col-md-6 mb-3">
+              <label for="tipo">Genero</label>
+              <select class="custom-select d-block w-100" id="tipo" formControlName="tipo" required>
+                <option value="">Choose...</option>
+                <option value="terror">Terror</option>
+                <option value="comedia">Comedia</option>
+                <option value="amor">Romance</option>
+                <option value="otros">Otros</option>
+              </select>
+              <div *ngIf="this.altaForm.get('tipo').invalid && (this.altaForm.get('tipo').dirty || this.altaForm.get('tipo').touched)" class="invalid-feedback">
+                <div *ngIf="this.altaForm.get('tipo').hasError('required')" >
+                  Debe indicar el nombre
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="fecha">Fecha de estreno</label>
+              <input type="date" class="form-control" id="fecha" formControlName="fecha" required>
+              <div *ngIf="this.altaForm.get('fecha').invalid && (this.altaForm.get('fecha').dirty || this.altaForm.get('fecha').touched)" class="invalid-feedback">
+                <div *ngIf="this.altaForm.get('fecha').hasError('required')" >
+                  Debe indicar una fecha
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+  
+          <div class="mb-3">
+            <label for="cantidad">Cantidad de público </label>
+            <input type="number" class="form-control" id="cantidad" formControlName="cantidad" required>
+            <div *ngIf="this.altaForm.get('cantidad').invalid && (this.altaForm.get('cantidad').dirty || this.altaForm.get('cantidad').touched)" class="invalid-feedback">
+              <div *ngIf="this.altaForm.get('cantidad').hasError('required')" >
+                Debe indicar la cantidad
+              </div>
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="actor">Actor </label>
+            <input type="text" class="form-control" id="actor" formControlName="actor" required disabled>
+            <div *ngIf="this.altaForm.get('actor').invalid && (this.altaForm.get('actor').dirty || this.altaForm.get('actor').touched)" class="invalid-feedback">
+              <div *ngIf="this.altaForm.get('actor').hasError('required')" >
+                Debe elejir un actor
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="foto">Foto <span class="text-muted">(Optional)</span></label>
+            <input type="text" class="form-control" id="foto" placeholder="" formControlName="foto" disabled>
+            <!--div class="invalid-feedback">
+              Please enter your shipping address.
+            </div-->
+          </div>
+  
+          
+  
+          <!--div class="row">
+            <div class="col-md-5 mb-3">
+              <label for="country">Country</label>
+              <select class="custom-select d-block w-100" id="country" required>
+                <option value="">Choose...</option>
+                <option>United States</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid country.
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="state">State</label>
+              <select class="custom-select d-block w-100" id="state" required>
+                <option value="">Choose...</option>
+                <option>California</option>
+              </select>
+              <div class="invalid-feedback">
+                Please provide a valid state.
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="zip">Zip</label>
+              <input type="text" class="form-control" id="zip" placeholder="" required>
+              <div class="invalid-feedback">
+                Zip code required.
+              </div>
+            </div>
+          </div>
+          <hr class="mb-4">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="same-address">
+            <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
+          </div>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="save-info">
+            <label class="custom-control-label" for="save-info">Save this information for next time</label>
+          </div>
+          <hr class="mb-4">
+  
+          <h4 class="mb-3">Payment</h4>
+  
+          <div class="d-block my-3">
+            <div class="custom-control custom-radio">
+              <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+              <label class="custom-control-label" for="credit">Credit card</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+              <label class="custom-control-label" for="debit">Debit card</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
+              <label class="custom-control-label" for="paypal">PayPal</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="cc-name">Name on card</label>
+              <input type="text" class="form-control" id="cc-name" placeholder="" required>
+              <small class="text-muted">Full name as displayed on card</small>
+              <div class="invalid-feedback">
+                Name on card is required
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="cc-number">Credit card number</label>
+              <input type="text" class="form-control" id="cc-number" placeholder="" required>
+              <div class="invalid-feedback">
+                Credit card number is required
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 mb-3">
+              <label for="cc-expiration">Expiration</label>
+              <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+              <div class="invalid-feedback">
+                Expiration date required
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="cc-cvv">CVV</label>
+              <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+              <div class="invalid-feedback">
+                Security code required
+              </div>
+            </div>
+          </div>
+          <hr class="mb-4"-->
+          <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="alta()">Guardar</button>
+        </form>
+      </div>
+    </div>
+  
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+      <p class="mb-1">&copy; 2017-2020 Company Name</p>
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="#">Privacy</a></li>
+        <li class="list-inline-item"><a href="#">Terms</a></li>
+        <li class="list-inline-item"><a href="#">Support</a></li>
+      </ul>
+    </footer>
+  </div>
