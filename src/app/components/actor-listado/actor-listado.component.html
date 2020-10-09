@@ -5,7 +5,7 @@
         
           <!-- Main jumbotron for a primary marketing message or call to action -->
           <div class="jumbotron">
-            <app-tabla-actor (itemSeleccionado)="mostrarDetalle($event)" [listado]="listado" ></app-tabla-actor>
+            <app-tabla-actor (itemSeleccionado)="mostrarDetalle($event)" [listado]="listado" [mostrarAcciones]="true"></app-tabla-actor>
           </div>
         
           <div class="container" [ngSwitch]="accion">

@@ -14,7 +14,7 @@
                 <th>Nombre</th>
                 <th>Sexo</th>
                 <th>Fecha nacimiento</th>
-                <th>Accion</th>
+                <th *ngIf="mostrarAcciones">Accion</th>
             </tr>
         </thead>
         <tbody>
@@ -22,7 +22,7 @@
                 <td (click)="Seleccionar(item,'detalle')">{{item.Nombre}} {{item.apellido}}</td>
                 <td (click)="Seleccionar(item,'detalle')">{{item.sexo}}</td>
                 <td (click)="Seleccionar(item,'detalle')">{{item.FechaNacimiento}}</td>
-                <td>
+                <td *ngIf="mostrarAcciones">
                     <button class="btn btn-primary " (click)="Seleccionar(item,'detalle')">Ver</button>
                     <button class="btn btn-success " (click)="Seleccionar(item,'editar')">Editar</button>
                     <button class="btn btn-warning " (click)="Seleccionar(item,'borrar')">Borrar</button>

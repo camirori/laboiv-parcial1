@@ -12,7 +12,7 @@
           <span class="text-muted">Actores</span>
           <!--span class="badge badge-secondary badge-pill">3</span-->
         </h4>
-        <app-tabla-actor [listado]="listadoActores" (itemSeleccionado)="paisSeleccionado($event)"></app-tabla-actor>
+        <app-tabla-actor [listado]="listadoActores" [mostrarAcciones]="false" (itemSeleccionado)="paisSeleccionado($event)"></app-tabla-actor>
         <!--ul class="list-group mb-3">
           <li class="list-group-item d-flex justify-content-between lh-condensed">
             <div>
